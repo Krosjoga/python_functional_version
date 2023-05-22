@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flask: Deploy an App &mdash; Python Beginners  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Flask: Web Forms" href="flask_forms.html" />
+    <link rel="prev" title="Flask Templates" href="flask3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Beginners
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="learn_python.html">Starting Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Reading and Writing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csv.html">CSV Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">Web Scraping Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping2.html">Web Scraping, Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping3.html">Web Scraping, Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask.html">Flask Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask2.html">Flask, Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask3.html">Flask Templates</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flask: Deploy an App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#baking-it-out-with-frozen-flask">“Baking it out” with Frozen-Flask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#benefits-of-freezing">Benefits of freezing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freezer-errors">Freezer errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#when-freezing-will-not-work-cannot-work">When freezing will not work, cannot work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flask_forms.html">Flask: Web Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask_db1.html">Flask and Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask_db2.html">Flask: Read from a Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask_db3.html">Flask: Write to a Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configparser.html">configparser</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Beginners</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Flask: Deploy an App</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/flask_deploy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flask-deploy-an-app">
+<h1>Flask: Deploy an App<a class="headerlink" href="#flask-deploy-an-app" title="Permalink to this headline">¶</a></h1>
+<p>Previous:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="flask.html">Flask intro</a>: A very simple Flask app</p></li>
+<li><p><a class="reference external" href="flask2.html">Flask, part 2</a>: Values in routes; using an API</p></li>
+<li><p><a class="reference external" href="flask3.html">Flask templates</a>: Write HTML templates for a Flask app</p></li>
+</ol>
+<p>Code for this chapter is <a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/flask">here</a>.</p>
+<p>In the Flask Templates chapter, we built a functioning Flask app. In this chapter, we’ll explore several ways to put that Flask app online.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>When professionals deploy their Python web apps, nowadays they commonly deploy to a cloud service such as <a class="reference external" href="https://aws.amazon.com/">Amazon’s AWS</a>, <a class="reference external" href="https://www.heroku.com/">Heroku</a>, or <a class="reference external" href="https://cloud.google.com/free/">Google App Engine</a>.</p>
+<p>One thing to understand, though, is that <em>often</em> they do not deploy a Python executable. That is, the site they upload to a web server is not the Flask app and its associated templates, etc., but rather a traditional website with hard-coded HTML files that has been <em>“baked out”</em> from Flask.</p>
+<p>In this document, we’ll learn how to do that. Then we will also learn how to install a Flask app (one that has not been “baked out”) on <a class="reference external" href="https://render.com/">Render.com</a>.</p>
+</div>
+<div class="section" id="baking-it-out-with-frozen-flask">
+<h2>“Baking it out” with Frozen-Flask<a class="headerlink" href="#baking-it-out-with-frozen-flask" title="Permalink to this headline">¶</a></h2>
+<p><strong>Frozen-Flask</strong> is a Flask extension, so we’ll need to install it. In Terminal, change into your Flask projects folder and <strong>activate your virtual environment</strong> there. Then install at the command prompt — where you see <code class="docutils literal notranslate"><span class="pre">$</span></code> (Mac) or <code class="docutils literal notranslate"><span class="pre">C:\Users\yourname&gt;</span></code> (Windows )—</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">Frozen</span><span class="o">-</span><span class="n">Flask</span>
+</pre></div>
+</div>
+<p>After installing the extension, create <strong>a new file</strong> inside the folder that contains the Flask app you want to “freeze.” Name the new file <em>freeze.py</em> and copy/paste this script into it:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">../python_code_examples/flask/freeze.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;standard freeze script&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">flask_frozen</span> <span class="kn">import</span> <span class="n">Freezer</span>
+
+<span class="c1"># instead of &quot;filename,&quot; below, use the name of the file that</span>
+<span class="c1"># runs YOUR Flask app - omit .py from the filename</span>
+<span class="kn">from</span> <span class="nn">filename</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FREEZER_RELATIVE_URLS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">freezer</span> <span class="o">=</span> <span class="n">Freezer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">freezer</span><span class="o">.</span><span class="n">freeze</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">filename</span></code> in the script above must <strong>OMIT</strong> the file extension <code class="docutils literal notranslate"><span class="pre">.py</span></code> from the filename.</p>
+</div>
+<p>Save all your open files.</p>
+<p>If the Flask web server is running, quit it with Control-C.</p>
+<p>In Terminal, in the directory containing the Flask app, enter this at the command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">freeze</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p><strong>If freezing worked:</strong> Inside your Flask app folder, you’ll now see a new folder named <em>build</em>. Open it. Inside <em>build</em>, you’ll see all the files created by Frozen-Flask.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/freezer.png"><img alt="Flask app folder with build screenshot" src="_images/freezer.png" style="width: 563.0px; height: 428.0px;" /></a>
+</div>
+<p>The entire <em>build</em> folder can be uploaded to a web server (without any other files or folders), and the folder name can be changed (from <em>build</em> to anything) — and all the pages will work. (Just don’t change or rename anything inside the <em>build</em> folder.)</p>
+<p>Need to update the site? Make your edits, <strong>run</strong> <em>freeze.py</em> <strong>again,</strong> and re-deploy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the generated HTML files do not have filenames ending with <em>.html,</em> they might not open in the browser locally. That is, they might open as raw code! Upload the <em>build</em> folder to a server and test the pages there. <a class="reference external" href="https://weimergeeks.com/pres_frozen_build/">See an example!</a></p>
+</div>
+<div class="section" id="benefits-of-freezing">
+<h3>Benefits of freezing<a class="headerlink" href="#benefits-of-freezing" title="Permalink to this headline">¶</a></h3>
+<p>Pause for a moment and consider this: Imagine you needed to build a site with detailed data about the 535 members of the U.S. Congress. You build it with Flask (using a CSV file, a Python dictionary, or an SQL database to generate all the data) with two or maybe three HTML templates. Then you run <em>freeze.py</em> and in seconds you have 535 individual files, which you just upload as one folder, and you’re done.</p>
+<p>Similar apps might produce pages for:</p>
+<ul class="simple">
+<li><p>190 pages for each dog breed in the American Kennel Club</p></li>
+<li><p>318 pages for each character in all the Harry Potter novels</p></li>
+<li><p>3,144 counties and county equivalents in the United States</p></li>
+<li><p>6,909 living languages in the world</p></li>
+</ul>
+<p>When there are changes to the data, you update the data source, re-freeze and re-deploy.</p>
+</div>
+<div class="section" id="freezer-errors">
+<h3>Freezer errors<a class="headerlink" href="#freezer-errors" title="Permalink to this headline">¶</a></h3>
+<p><strong>If freezing did not work:</strong> This may happen because your app uses dynamic routes similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/actor/&lt;id&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You might need to add a <a class="reference external" href="https://pythonhosted.org/Frozen-Flask/#url-generators">URL generator</a> to the <em>freeze.py</em> file. <strong>But read the NOTE above before you do this!</strong></p>
+<p>For example (<a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/flask/actors_app">see project files</a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">data</span> <span class="kn">import</span> <span class="n">ACTORS</span>
+
+<span class="nd">@freezer</span><span class="o">.</span><span class="n">register_generator</span>
+<span class="k">def</span> <span class="nf">actor</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">ACTORS</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>You can definitely freeze an app with dynamic route information, but you might need to play around with it a bit before you get it working.</p>
+<p>Some apps <em>cannot</em> work via freezing. See below for details.</p>
+<p>Read the <a class="reference external" href="http://pythonhosted.org/Frozen-Flask/">full documentation</a> for Frozen-Flask.</p>
+</div>
+</div>
+<div class="section" id="when-freezing-will-not-work-cannot-work">
+<h2>When freezing will not work, cannot work<a class="headerlink" href="#when-freezing-will-not-work-cannot-work" title="Permalink to this headline">¶</a></h2>
+<p>If your app depends on dynamic activity — for example, if you are using <strong>Flask-WTF</strong> to process a form — you will not get a fully functioning app if you freeze it. Similarly, if you’re accessing an API to get data that changes frequently (such as currency rates or weather), you cannot freeze that app.</p>
+<p>In those cases, you will need to have Python running on a web server — and NOT freeze the app.</p>
+<p>There are various ways to do this if you pay to use a cloud service, but if you’re a student and your app is not going to attract thousands of users, there are some free options.</p>
+<p>In the past, it was possible to run Python apps on hosted web server accounts (“shared hosting”) that provide <strong>cPanel</strong> — a set of services accessed from a simple dashboard. Unfortunately, <strong>this option is no longer available.</strong> Another free option that is no longer offered was the “hobby” level of service at Heroku.</p>
+<p>In 2023, the best free option I am aware of for deploying a Python app is to use Render.com. <a class="reference external" href="https://bit.ly/mm-render-flask">This document</a> walks you through how to sign up, get started, and deploy your first Python app there. It’s relatively straightforward.</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>We’ve learned about two different options for deploying a Flask app:</p>
+<ul class="simple">
+<li><p>Use Frozen-Flask and then upload a folder to your server</p></li>
+<li><p>Deploy to Render.com</p></li>
+</ul>
+<p>Depending on the characteristics of your Flask app, one of these options might be much better than the other.</p>
+<p><a class="reference external" href="https://flask.palletsprojects.com/en/2.2.x/deploying/">See more options for deploying</a> in the Flask documentation.</p>
+<p>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flask_forms.html" class="btn btn-neutral float-right" title="Flask: Web Forms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flask3.html" class="btn btn-neutral float-left" title="Flask Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 Mindy McAdams
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

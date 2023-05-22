@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dictionaries &mdash; Python Beginners  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CSV Files" href="csv.html" />
+    <link rel="prev" title="Reading and Writing Files" href="working_with_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Beginners
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="learn_python.html">Starting Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Reading and Writing Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dictionaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-dictionaries">Introduction to dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-loop-over-a-dictionary">How to loop over a dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-a-csv-to-a-dictionary">Converting a CSV to a dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-a-dictionary-into-a-csv-file">Writing a dictionary into a CSV file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-json-to-a-dictionary-or-vice-versa">Converting JSON to a dictionary or vice versa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples-of-complex-dictionaries">Examples of complex dictionaries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-list-of-dictionaries">A list of dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-dictionary-of-dictionaries">A dictionary of dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#chapter-review-chapter-5">Chapter review: chapter 5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-points">Key points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slides-chapters-5-and-16">Slides: chapters 5 and 16</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csv.html">CSV Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">Web Scraping Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping2.html">Web Scraping, Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping3.html">Web Scraping, Part 3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Beginners</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Dictionaries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/dicts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h1>
+<p>This section is based on chapter 5 in Sweigart’s <a class="reference external" href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a> (second edition).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/dictionaries">Python scripts for this section</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">Python documentation for dictionaries</a></p></li>
+</ul>
+<div class="section" id="introduction-to-dictionaries">
+<h2>Introduction to dictionaries<a class="headerlink" href="#introduction-to-dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>The crucial concept to understand is that a <strong>dictionary</strong> consists of <em>key-value pairs</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Harry Potter and the Goblet of Fire&quot;</span><span class="p">,</span> <span class="s2">&quot;Author&quot;</span><span class="p">:</span> <span class="s2">&quot;J. K. Rowling&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">:</span> <span class="mi">2001</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>The <strong>keys</strong> in that dictionary are <code class="docutils literal notranslate"><span class="pre">&quot;Title&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Author&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Year&quot;</span></code>.</p>
+<p>The <strong>values</strong> in that dictionary are <code class="docutils literal notranslate"><span class="pre">&quot;Harry</span> <span class="pre">Potter</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">Goblet</span> <span class="pre">of</span> <span class="pre">Fire&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;J.</span> <span class="pre">K.</span> <span class="pre">Rowling&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">2001</span></code>.</p>
+<p>Different from a <strong>list</strong>, a dictionary does not have indexes. You can’t depend on the <em>order</em> of items in a dictionary to stay the same. You cannot insert a new item into a particular position in a dictionary because the items do not have positions, or places. Thus we refer to <strong>lists</strong> as <em>ordered</em> and to dictionaries as <em>unordered</em>.</p>
+<p>Although Sweigart refers to the keys as <em>indexes,</em> you shouldn’t think of them behaving exactly as indexes do in lists.</p>
+<p>To understand Python dictionaries better, run the file <em>simple_dict.py</em> found <a class="reference external" href="https://github.com/macloo/python-adv-web-apps/blob/master/python_code_examples/dictionaries/">here</a>.</p>
+<p>Note that <strong>keys</strong> can be strings, integers or floats, and <strong>values</strong> can also be strings, integers or floats.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Mahatma Gandhi&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;India&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;chakras&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">108</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">new_dict</span><span class="p">)</span>
+<span class="go">{&#39;name&#39;: &#39;Mahatma Gandhi&#39;, 2: &#39;India&#39;, 3.14: &#39;chakras&#39;, &#39;number&#39;: 108, &#39;one&#39;: 1}</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Other data types can also be used as dictionary values, as you’ll see below.</p>
+</div>
+<div class="section" id="how-to-loop-over-a-dictionary">
+<h2>How to loop over a dictionary<a class="headerlink" href="#how-to-loop-over-a-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>The following ways to loop through a dictionary are demonstrated in the file <a class="reference external" href="https://github.com/macloo/python-adv-web-apps/blob/master/python_code_examples/dictionaries/looping_keys_values.py">looping_keys_values.py</a>. Run it to see how it works.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">k</span> <span class="pre">in</span> <span class="pre">dict.keys():</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">v</span> <span class="pre">in</span> <span class="pre">dict.values():</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">k,</span> <span class="pre">v</span> <span class="pre">in</span> <span class="pre">dict.items():</span></code></p></li>
+</ul>
+<p>Naturally, your dictionary likely will not be named <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<p>Sweigart does an excellent job of explaining dictionaries in chapter 5.</p>
+<p>You can get a Python <strong>list</strong> of all the keys in a dictionary:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keys_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Similarly, you can get a Python <strong>list</strong> of all the values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">values_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="converting-a-csv-to-a-dictionary">
+<h2>Converting a CSV to a dictionary<a class="headerlink" href="#converting-a-csv-to-a-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>You can use Python’s <code class="docutils literal notranslate"><span class="pre">csv</span></code> module and the <code class="docutils literal notranslate"><span class="pre">DictReader()</span></code> method to create a list of dictionaries from a CSV file (also see <em>dictreader_example2.py</em> <a class="reference external" href="https://github.com/macloo/python-adv-web-apps/blob/master/python_code_examples/dictionaries/">here</a>).</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">../python_code_examples/dictionaries/dictreader_example.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># open a CSV file</span>
+<span class="c1"># note - the CSV must have column headings in top row</span>
+<span class="n">datafile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.csv&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># create a dictReader object</span>
+<span class="n">my_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">datafile</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">my_reader</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">])</span>
+
+<span class="n">datafile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Note that if you try to treat a DictReader object like a normal list, it will not work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_reader</span><span class="p">)</span>
+<span class="go">&lt;csv.DictReader object at 0x1047c5400&gt;</span>
+</pre></div>
+</div>
+<p>But you can <em>convert</em> the DictReader object into a normal list if needed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_list_version</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_reader</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">new_list_version</span><span class="p">)</span>
+<span class="p">[{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;The Calculating Stars&#39;</span><span class="p">,</span> <span class="s1">&#39;Author&#39;</span><span class="p">:</span> <span class="s1">&#39;Mary Robinette Kowal&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="s1">&#39;2019&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;The Stone Sky&#39;</span><span class="p">,</span> <span class="s1">&#39;Author&#39;</span><span class="p">:</span> <span class="s1">&#39;N. K. Jemisin&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="s1">&#39;2018&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;The Obelisk Gate&#39;</span><span class="p">,</span> <span class="s1">&#39;Author&#39;</span><span class="p">:</span> <span class="s1">&#39;N. K. Jemisin&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="s1">&#39;2017&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-a-dictionary-into-a-csv-file">
+<h2>Writing a dictionary into a CSV file<a class="headerlink" href="#writing-a-dictionary-into-a-csv-file" title="Permalink to this headline">¶</a></h2>
+<p>This is covered in the <a class="reference external" href="csv.html#writing-from-a-dictionary">CSV Files chapter</a>.</p>
+</div>
+<div class="section" id="converting-json-to-a-dictionary-or-vice-versa">
+<h2>Converting JSON to a dictionary or vice versa<a class="headerlink" href="#converting-json-to-a-dictionary-or-vice-versa" title="Permalink to this headline">¶</a></h2>
+<p>This is covered in the <a class="reference external" href="csv.html#json-formatted-data">CSV chapter</a>.</p>
+</div>
+<div class="section" id="examples-of-complex-dictionaries">
+<h2>Examples of complex dictionaries<a class="headerlink" href="#examples-of-complex-dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>This is a bit like the nesting Matryoshka dolls from Russia — you can combine multiple dictionaries in a list, and you can even nest dictionaries inside other dictionaries.</p>
+<div class="section" id="a-list-of-dictionaries">
+<h3>A list of dictionaries<a class="headerlink" href="#a-list-of-dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>In this data structure, one Python list contains many dictionaries. Each dictionary is a list item.</p>
+<p>All the dictionaries contain the same keys.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">presidents_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;President&quot;</span><span class="p">:</span><span class="s2">&quot;George Washington&quot;</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/George_Washington&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;4/30/1789&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1797&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Independent &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Planter&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;None&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;2/22/1732&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Westmoreland County, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;12/14/1799&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Mount Vernon, Virginia&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;President&quot;</span><span class="p">:</span><span class="s2">&quot;John Adams&quot;</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/John_Adams&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1797&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1801&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Federalist &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Massachusetts&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;Harvard&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">61</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;10/30/1735&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Quincy, Massachusetts&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;7/4/1826&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Quincy, Massachusetts&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;President&quot;</span><span class="p">:</span><span class="s2">&quot;Thomas Jefferson&quot;</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/Thomas_Jefferson&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1801&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1809&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Democratic-Republican &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Planter, Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;William and Mary&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;4/13/1743&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Albemarle County, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;7/4/1826&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Albemarle County, Virginia&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;President&quot;</span><span class="p">:</span><span class="s2">&quot;James Madison&quot;</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/James_Madison&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1809&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1817&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Democratic-Republican &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;Princeton&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;3/16/1751&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Port Conway, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;6/28/1836&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Orange County, Virginia&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;President&quot;</span><span class="p">:</span><span class="s2">&quot;James Monroe&quot;</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/James_Monroe&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1817&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1825&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Democratic-Republican &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;William and Mary&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;4/28/1758&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Westmoreland County, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;7/4/1831&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;New York, New York&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-dictionary-of-dictionaries">
+<h3>A dictionary of dictionaries<a class="headerlink" href="#a-dictionary-of-dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>In this data structure, one dictionary contains key-value pairs in which the value <em>for each key</em> is a dictionary.</p>
+<p>Here the <strong>key</strong> is the name of a U.S. president and its <strong>value</strong> is a dictionary containing facts about that president. Note where the curly braces are used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">presidents_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s2">&quot;George Washington&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/George_Washington&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;4/30/1789&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1797&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Independent &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Planter&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;None&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;2/22/1732&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Westmoreland County, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;12/14/1799&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Mount Vernon, Virginia&quot;</span><span class="p">},</span>
+<span class="s2">&quot;John Adams&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/John_Adams&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1797&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1801&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Federalist &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Massachusetts&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;Harvard&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">61</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;10/30/1735&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Quincy, Massachusetts&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;7/4/1826&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Quincy, Massachusetts&quot;</span><span class="p">},</span>
+<span class="s2">&quot;Thomas Jefferson&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/Thomas_Jefferson&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1801&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1809&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Democratic-Republican &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Planter, Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;William and Mary&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;4/13/1743&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Albemarle County, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;7/4/1826&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Albemarle County, Virginia&quot;</span><span class="p">},</span>
+<span class="s2">&quot;James Madison&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/James_Madison&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1809&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1817&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Democratic-Republican &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;Princeton&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;3/16/1751&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Port Conway, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;6/28/1836&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;Orange County, Virginia&quot;</span><span class="p">},</span>
+<span class="s2">&quot;James Monroe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Presidency&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Wikipedia_entry&quot;</span><span class="p">:</span><span class="s2">&quot;http://en.wikipedia.org/wiki/James_Monroe&quot;</span><span class="p">,</span><span class="s2">&quot;Took_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1817&quot;</span><span class="p">,</span><span class="s2">&quot;Left_office&quot;</span><span class="p">:</span><span class="s2">&quot;3/4/1825&quot;</span><span class="p">,</span><span class="s2">&quot;Party&quot;</span><span class="p">:</span><span class="s2">&quot;Democratic-Republican &quot;</span><span class="p">,</span><span class="s2">&quot;Home_state&quot;</span><span class="p">:</span><span class="s2">&quot;Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Occupation&quot;</span><span class="p">:</span><span class="s2">&quot;Lawyer&quot;</span><span class="p">,</span><span class="s2">&quot;College&quot;</span><span class="p">:</span><span class="s2">&quot;William and Mary&quot;</span><span class="p">,</span><span class="s2">&quot;Age_when_took_office&quot;</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="s2">&quot;Birth_date&quot;</span><span class="p">:</span><span class="s2">&quot;4/28/1758&quot;</span><span class="p">,</span><span class="s2">&quot;Birthplace&quot;</span><span class="p">:</span><span class="s2">&quot;Westmoreland County, Virginia&quot;</span><span class="p">,</span><span class="s2">&quot;Death_date&quot;</span><span class="p">:</span><span class="s2">&quot;7/4/1831&quot;</span><span class="p">,</span><span class="s2">&quot;Location_death&quot;</span><span class="p">:</span><span class="s2">&quot;New York, New York&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-review-chapter-5">
+<h2>Chapter review: chapter 5<a class="headerlink" href="#chapter-review-chapter-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="key-points">
+<h3>Key points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Differences between lists and dictionaries</p></li>
+<li><p>How to format a dictionary correctly</p></li>
+<li><p>Take care with use of quotes when both keys and values are strings</p></li>
+<li><p>How to loop through keys, values, or both at once</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">list(</span> <span class="pre">dict.keys()</span> <span class="pre">)</span></code> to get a list of all keys in a dictionary</p></li>
+<li><p>Check for presence of a key or a value with <code class="docutils literal notranslate"><span class="pre">in</span></code> or <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></li>
+<li><p>Provide a default value in case a key is not present: <code class="docutils literal notranslate"><span class="pre">dict.get(key,</span> <span class="pre">value)</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">dict.setdefault(key,</span> <span class="pre">value)</span></code> to set a new key but prevent overwriting an existing value if the key is already present</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pprint</span></code> if you need to print out a large dictionary’s contents in the Terminal</p></li>
+</ol>
+<p>In the section “Using Data Structures to Model Real-World Things,” Sweigart discusses nested dictionaries and lists. This is illustrated above with the example shown under the subheading “A dictionary of dictionaries.”</p>
+</div>
+<div class="section" id="slides-chapters-5-and-16">
+<h3>Slides: chapters 5 and 16<a class="headerlink" href="#slides-chapters-5-and-16" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://bit.ly/pythonrev4">Python Review 4</a></p>
+<p>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="csv.html" class="btn btn-neutral float-right" title="CSV Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="working_with_files.html" class="btn btn-neutral float-left" title="Reading and Writing Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 Mindy McAdams
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

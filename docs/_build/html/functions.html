@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Functions in Python &mdash; Python Beginners  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Working with Lists" href="lists.html" />
+    <link rel="prev" title="Starting Python" href="learn_python.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Beginners
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="learn_python.html">Starting Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functions in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#write-and-run-a-python-script">Write and run a Python script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#put-something-in-get-something-out">Put something in, get something out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-parameters-and-returns-in-functions">Using parameters and returns in functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-points-about-scope">Key points about scope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#try-except">try/except</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chapter-review-chapter-3">Chapter review: chapter 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-points">Key points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slides-chapter-3">Slides: chapter 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Reading and Writing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csv.html">CSV Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">Web Scraping Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping2.html">Web Scraping, Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping3.html">Web Scraping, Part 3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Beginners</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Functions in Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="functions-in-python">
+<h1>Functions in Python<a class="headerlink" href="#functions-in-python" title="Permalink to this headline">¶</a></h1>
+<p>This section is based on chapter 3 in Sweigart’s <a class="reference external" href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a> (second edition).</p>
+<p><a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/functions">Python scripts for this section</a></p>
+<div class="section" id="write-and-run-a-python-script">
+<h2>Write and run a Python script<a class="headerlink" href="#write-and-run-a-python-script" title="Permalink to this headline">¶</a></h2>
+<p>To write functions in Python, you will be saving files with the <cite>.py</cite> extension. You can write and save Python files in <a class="reference external" href="https://atom.io/">Atom</a> or in <a class="reference external" href="https://codewith.mu/en/about">Mu</a>.</p>
+<p>To run a script named <cite>foobar.py</cite> that’s in the current directory, type this at the bash prompt (<cite>$</cite>) in Mac or the Windows Command Prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">foobar</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>On Windows, or in a <em>virtualenv</em> on Mac or Windows, drop the <code class="docutils literal notranslate"><span class="pre">3</span></code> from <code class="docutils literal notranslate"><span class="pre">python3</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">foobar</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>You do not need to be in your <em>virtualenv</em> to do this, but it’s okay if you are.</p>
+</div>
+<div class="section" id="put-something-in-get-something-out">
+<h2>Put something in, get something out<a class="headerlink" href="#put-something-in-get-something-out" title="Permalink to this headline">¶</a></h2>
+<p>Sweigart notes that many functions operate as “black boxes”: This describes a function with parameters (it takes arguments) and a <cite>return</cite> statement. Something goes into it (arguments) and something comes out of it (whatever is returned). You don’t need to know how it works; you just need to know what it does.</p>
+<p><em>a_black_box.py</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_things</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+   <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>To run that function, <em>call it,</em> passing in two strings as arguments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add_things</span><span class="p">(</span><span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;Gators&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function will <em>return</em> this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loveloveloveGatorsGatorsGators</span>
+</pre></div>
+</div>
+<p>However, you will not <em>see</em> the returned value <em>unless</em> you capture it, or “catch” it, with a variable, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">add_things</span><span class="p">(</span><span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;Gators&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then you can print <cite>output</cite> or send it to a database or write it into the HTML of a live web page — or whatever you need.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is true for many functions we use from imported libraries. We know how to <em>call</em> the function, and we know what to expect as output, but we don’t need to know how it works.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We don’t need to know how a toaster toasts bread to get toast out of it. We put in two pieces of bread (the <em>arguments</em> we pass into a function), and toast is <em>returned</em> after the function runs.</p>
+</div>
+</div>
+<div class="section" id="using-parameters-and-returns-in-functions">
+<h2>Using parameters and returns in functions<a class="headerlink" href="#using-parameters-and-returns-in-functions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s build a function step by step to help you understand parameters and returns. Assume that you buy the same coffee (or other beverage) daily, and you want to calculate how much you spend per week.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function has no parameters and returns nothing</span>
+
+<span class="k">def</span> <span class="nf">drink_expenses</span><span class="p">():</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="mf">3.99</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">count</span>
+
+<span class="c1"># call the function</span>
+<span class="n">drink_expenses</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It’s not very useful like that. What if the price of the drink changes? What if you want to calculate a different time period?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function has two parameters, but it returns nothing</span>
+
+<span class="k">def</span> <span class="nf">drink_expenses</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">count</span>
+
+<span class="c1"># call the function with two arguments</span>
+<span class="n">drink_expenses</span><span class="p">(</span><span class="mf">3.99</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now you’re able to <em>pass in</em> any price and any time span you want. However, you can’t use the value for <cite>total</cite> if there’s no <cite>return</cite> statement. So — return the total amount spent on coffee.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function has two parameters, and it returns a value</span>
+
+<span class="k">def</span> <span class="nf">drink_expenses</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+   <span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">count</span>
+   <span class="k">return</span> <span class="n">total</span>
+
+<span class="c1"># call the function with two arguments</span>
+<span class="n">drink_expenses</span><span class="p">(</span><span class="mf">4.49</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function is good, but the way you <em>call</em> it needs to change. To assign the <em>returned value</em> of a function to a new variable, follow this pattern:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function has two parameters, and it returns a value</span>
+
+<span class="k">def</span> <span class="nf">drink_expenses</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+   <span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">count</span>
+   <span class="k">return</span> <span class="n">total</span>
+
+<span class="c1"># assign the returned value to a new variable, result</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">drink_expenses</span><span class="p">(</span><span class="mf">4.49</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A function can have many lines of instructions inside its code block (including conditionals, loops, and more).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It’s best to write functions that perform one specific task, rather than several tasks.</p>
+</div>
+</div>
+<div class="section" id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>This is a bit of a hard topic for beginners, because you don’t have much experience writing longer or complex scripts.</p>
+<p>Consider the following example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">../python_code_examples/functions/f_scope_global_vs_local.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of badly using scope of variables</span>
+
+<span class="k">def</span> <span class="nf">breakfast</span><span class="p">():</span>
+    <span class="n">food</span> <span class="o">=</span> <span class="s1">&#39;eggs&#39;</span>
+    <span class="n">drink</span> <span class="o">=</span> <span class="s1">&#39;coffee&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Breakfast:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">food</span><span class="p">,</span> <span class="n">drink</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">lunch</span><span class="p">():</span>
+    <span class="n">food</span> <span class="o">=</span> <span class="s1">&#39;salad&#39;</span>
+    <span class="n">drink</span> <span class="o">=</span> <span class="s1">&#39;iced tea&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lunch:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">food</span><span class="p">,</span> <span class="n">drink</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># run the functions</span>
+<span class="n">lunch</span><span class="p">()</span>
+<span class="n">breakfast</span><span class="p">()</span>
+
+<span class="c1"># attempt to print local variables (will not work)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">food</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">drink</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Everything will work fine <em>except the last two lines.</em> If you run the script, you’ll see what the two functions print:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Lunch</span><span class="p">:</span>
+<span class="n">salad</span> <span class="n">iced</span> <span class="n">tea</span>
+
+<span class="n">Breakfast</span><span class="p">:</span>
+<span class="n">eggs</span> <span class="n">coffee</span>
+</pre></div>
+</div>
+<p>But then you’ll see an error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+   <span class="n">File</span> <span class="s2">&quot;f_scope_global_vs_local.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">20</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">food</span><span class="p">)</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;food&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p>The error message (last line) clearly states the problem: You tried to print the value of the variable <code class="docutils literal notranslate"><span class="pre">food</span></code>, but there is no such variable <em>outside the functions.</em> The script stopped with <code class="docutils literal notranslate"><span class="pre">print(food)</span></code>, but if you tried <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(drink)</span></code> instead, you’d get the same error.</p>
+<p>Note that it’s fine to have <code class="docutils literal notranslate"><span class="pre">food</span></code> in both functions and <code class="docutils literal notranslate"><span class="pre">drink</span></code> in both functions — there is no conflict or confusion because of local scope.</p>
+<div class="section" id="key-points-about-scope">
+<h3>Key points about scope<a class="headerlink" href="#key-points-about-scope" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A variable has <em>local</em> scope or <em>global</em> scope. It cannot have both.</p></li>
+<li><p>A local variable exists only <em>inside</em> a function. It cannot be transmitted outside the function (although its <em>value</em> can be — via <cite>return</cite>).</p></li>
+<li><p>Sometimes you will make a mistake about the scope of a variable, and then you will get an error — or (worse) your answers or results will not be correct.</p></li>
+<li><p>A global variable exists <em>outside</em> any function. It may be used inside a function.</p></li>
+<li><p>“It is a <strong>bad habit</strong> to rely on global variables as your programs get larger and larger” (Sweigart, p. 66).</p></li>
+<li><p><strong>Avoid</strong> repeating the names of variables in different scopes. If you have a global variable named <cite>foobar</cite>, do not name a local variable <cite>foobar</cite>.</p></li>
+<li><p>See four rules, p. 69 in Sweigart</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="try-except">
+<h2>try/except<a class="headerlink" href="#try-except" title="Permalink to this headline">¶</a></h2>
+<p>When your program throws an error, your script stops. In most cases you want to be informed of the error but <em>not</em> have the script come to a halt. The usual way to accomplish this in Python is to write the code you want to run within the <code class="docutils literal notranslate"><span class="pre">try</span></code> block, and write instructions for handling the error inside the <code class="docutils literal notranslate"><span class="pre">except</span></code> block.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">../python_code_examples/functions/h_try_except.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># error handling: use this try/except pattern</span>
+
+<span class="k">def</span> <span class="nf">test_for_int</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; is an integer. Good job!&quot;</span>
+
+    <span class="c1"># this exception handles any entry that was NOT an integer</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Error: You did not provide a whole number.&quot;</span>
+
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="c1"># ask for user input</span>
+<span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">)</span>
+
+<span class="c1"># run the function, and print what is returned</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">test_for_int</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The code above requires the user to type a whole number. A string or a decimal (float) will trigger the exception.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>To find out what kind of error would be thrown, experiment at the Python command line (error types are case sensitive). Also, there is a list of <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">built-in exceptions</a>. <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> and <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> are common, but there are many others!</p>
+</div>
+</div>
+<div class="section" id="chapter-review-chapter-3">
+<h2>Chapter review: chapter 3<a class="headerlink" href="#chapter-review-chapter-3" title="Permalink to this headline">¶</a></h2>
+<p>These are the takeaways from this chapter. Slides below.</p>
+<div class="section" id="key-points">
+<h3>Key points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>The <cite>def</cite> statement (how and where to use it)</p></li>
+<li><p><em>When</em> is the code in a function executed? (Know the difference between <em>defining</em> a function and <em>running</em> it.)</p></li>
+<li><p>Parameters or arguments: Where are these, in a function?</p>
+<ul class="simple">
+<li><p>How do they work when you <em>define</em> the function?</p></li>
+<li><p>How do they work when you <em>run</em> the function? (<em>Note:</em> Instead of <em>run,</em> we may say <em>call</em> or <em>execute</em> the function. All have the same meaning.)</p></li>
+</ul>
+</li>
+<li><p>The <cite>return</cite> keyword (used in a function)</p></li>
+<li><p>The <cite>NoneType</cite> data type: value is <cite>None</cite></p>
+<ul class="simple">
+<li><p>This will be important in scraping! If you get an error that says something does not work because it cannot be applied to <cite>NoneType</cite>, it means something returned <cite>None</cite> when you were expecting another value.</p></li>
+<li><p>“Python adds <cite>return None</cite> to the end of any function definition with no <cite>return</cite> statement” (Sweigart, p. 62). In other words, a function with no <cite>return</cite> statement returns <cite>None</cite>.</p></li>
+<li><p>An empty <cite>return</cite> statement (that is, the word <cite>return</cite> alone on a line) also returns <cite>None</cite>.</p></li>
+</ul>
+</li>
+<li><p>Keyword arguments: You can forget this for the time being</p></li>
+<li><p><strong>Important!</strong> Scope of variables</p></li>
+<li><p>Functions as “black boxes”: Describes a function with <em>parameters</em> (meaning that it takes <em>arguments</em>) and a <cite>return</cite> statement. One or more values go into the function (arguments) and some value comes out of it (whatever is returned).</p></li>
+<li><p>Exception handling (also called error handling): <cite>try</cite>/<cite>except</cite> pattern</p></li>
+</ol>
+</div>
+<div class="section" id="slides-chapter-3">
+<h3>Slides: chapter 3<a class="headerlink" href="#slides-chapter-3" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://bit.ly/pythonrev2">Python Review 2</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lists.html" class="btn btn-neutral float-right" title="Working with Lists" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="learn_python.html" class="btn btn-neutral float-left" title="Starting Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 Mindy McAdams
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

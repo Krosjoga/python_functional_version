@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flask and Databases &mdash; Python Beginners  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Flask: Read from a Database" href="flask_db2.html" />
+    <link rel="prev" title="Flask: Web Forms" href="flask_forms.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Beginners
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="learn_python.html">Starting Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Reading and Writing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csv.html">CSV Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">Web Scraping Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping2.html">Web Scraping, Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping3.html">Web Scraping, Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask.html">Flask Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask2.html">Flask, Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask3.html">Flask Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask_deploy.html">Flask: Deploy an App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask_forms.html">Flask: Web Forms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flask and Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-flask-sqlalchemy">Setup: Flask-SQLAlchemy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basics-of-using-a-database-with-flask">Basics of using a database with Flask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-connect-a-database-to-a-flask-app">How to connect a database to a Flask app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sqlite-resources">SQLite resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-to-a-mysql-database">Connecting to a MySQL database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-connection-string">The connection string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-environment-variables">Setting environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-could-go-wrong">What could go wrong?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flask_db2.html">Flask: Read from a Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flask_db3.html">Flask: Write to a Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configparser.html">configparser</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Beginners</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Flask and Databases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/flask_db1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flask-and-databases">
+<h1>Flask and Databases<a class="headerlink" href="#flask-and-databases" title="Permalink to this headline">¶</a></h1>
+<p><em>Updated April 3, 2023</em></p>
+<p>To add database functionality to a Flask app, we will use SQLAlchemy.</p>
+<p><strong>SQLAlchemy</strong> is a Python SQL toolkit and object relational mapper (ORM) that enables Python to communicate with the SQL database system you prefer: MySQL, PostgreSQL, SQLite, and others. An ORM converts data between incompatible systems (object structure in Python, table structure in SQL database). SQLAlchemy is basically a <strong>bridge</strong> between Python and a SQL database.</p>
+<p><strong>Flask-SQLAlchemy</strong> is an <em>extension</em> for Flask that adds SQLAlchemy to your Flask app.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sqlalchemy.org/">SQLAlchemy documentation</a></p></li>
+<li><p><a class="reference external" href="https://flask-sqlalchemy.palletsprojects.com/">Flask-SQLAlchemy documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/flask/databases">Code for this chapter</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SQLAlchemy 2.0 was released in October 2022 and was a major update. This document has been updated for SQLAlchemy 2.0.</p>
+</div>
+<div class="section" id="setup-flask-sqlalchemy">
+<h2>Setup: Flask-SQLAlchemy<a class="headerlink" href="#setup-flask-sqlalchemy" title="Permalink to this headline">¶</a></h2>
+<p>We will install the <strong>Flask-SQLAlchemy</strong> extension to enable us to work with a SQL database in Flask. There are many extensions for Flask; each one adds a different set of functions and capabilities. See the <a class="reference external" href="https://flask.palletsprojects.com/en/1.1.x/extensions/">list of Flask extensions</a> for more.</p>
+<p>In Terminal, change into your Flask projects folder and <strong>activate your virtual environment</strong> there. Then install the extension at the command prompt — where you see <code class="docutils literal notranslate"><span class="pre">$</span></code> (Mac) or <code class="docutils literal notranslate"><span class="pre">C:\Users\yourname&gt;</span></code> (Windows) —</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">Flask</span><span class="o">-</span><span class="n">SQLAlchemy</span>
+</pre></div>
+</div>
+<p>We will use SQLite for database examples here. Although it’s not necessary to use SQLAlchemy to interact with a SQLite database, learning to use SQLAlchemy gives you a skill set that can be applied to <em>any</em> SQL database system.</p>
+<p>SQLAlchemy can bridge between Python and various different SQL database systems — some of which need an additional module, or library, to be installed. SQLite <em>does not</em> require an additional module — the <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code> module is included in Python 3.x.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.sqlalchemy.org/en/20/dialects/index.html">Find other modules for other SQL databases.</a></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you’re using a MySQL/MariaDB or PostgreSQL database, you will need to install a DBAPI module such as <code class="docutils literal notranslate"><span class="pre">psycopg2</span></code> (PostgreSQL) or <code class="docutils literal notranslate"><span class="pre">PyMySQL</span></code> (MySQL).</p>
+</div>
+</div>
+<div class="section" id="basics-of-using-a-database-with-flask">
+<h2>Basics of using a database with Flask<a class="headerlink" href="#basics-of-using-a-database-with-flask" title="Permalink to this headline">¶</a></h2>
+<p>You’ll <em>connect</em> your Flask app to an existing SQL database. Connecting will require your own database username and database password, <em>unless</em> using SQLite.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You <em>can</em> create the SQL database using Python, but <em>that is not required.</em> If you already have a database, all you need to worry about is how to connect it. If you <em>do</em> use Python to create a SQL database (and that’s an “if,” not a necessity), you will only do it once. You don’t create the same database again and again. Yes, this seems like a no-brainer — but you <em>do</em> need to think about what your code is <em>doing.</em></p>
+</div>
+<p>Your database may have one table, or more than one table. That depends on what you need, or the structure of the existing SQL database. You’ll need to know the <strong>table name(s).</strong> You’ll need to know the <strong>field names</strong> (column headings) in each table.</p>
+<p>Your app might only <em>read from</em> your SQL database. You can write SQL queries to accomplish this — using Flask-SQLAlchemy commands to do so. Note that you won’t write a straightforward SQL query. Here is an example of Flask-SQLAlchemy syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">socks</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">Sock</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;knee-high&#39;</span><span class="p">)</span>
+   <span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">Sock</span><span class="o">.</span><span class="n">name</span><span class="p">))</span><span class="o">.</span><span class="n">scalars</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The Flask-SQLAlchemy statement <em>to the right of the first equals sign,</em> above, is equivalent to this standard SQL statement:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">socks</span> <span class="k">WHERE</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;knee-high&quot;</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span>
+</pre></div>
+</div>
+<p>It is assumed you are familiar with how to write basic SQL queries.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/queries/">Details about writing queries with Flask-SQLAlchemy.</a></p></li>
+<li><p>Complete SQLAlchemy documentation: <a class="reference external" href="https://docs.sqlalchemy.org/en/20/orm/queryguide/index.html">ORM Querying Guide</a></p></li>
+</ul>
+<p>In addition to <em>reading from</em> your SQL database, your Flask app might allow people to <em>write to</em> the database. In that case, you will probably want people to log in securely. Alternatively, you might set up a Python script that updates your database on a regular schedule (e.g., writing in new records from a monthly data dump).</p>
+<p>You might write a Python script to populate your database from the contents of a CSV file. This would be fairly simple if you only need to run it once. If you need to add records repeatedly (say, once per month) to an existing database, you might need to check whether you are <em>duplicating records that are already there.</em> If you need to check for existing records and update them, that’s more challenging. You can handle each of these tasks within Flask, using route functions.</p>
+<p>If people are <em>writing into</em> your database, you will want to give them a web form, or forms, for doing so. See <a class="reference external" href="flask_forms.html">Flask: Web Forms</a> if you need to create a web form in your Flask app.</p>
+<p>You will not necessarily need forms if your app only <em>reads from</em> the database, but it is possible you’ll want to allow people to search for content, or to choose content from a menu using a <code class="docutils literal notranslate"><span class="pre">&lt;select&gt;</span></code> element in a form that queries the database. Then a form or forms will be required. Again, you will handle these tasks within Flask, using route functions.</p>
+<p>Of course, you’ll be using templates and all the other aspects of Flask covered in previous chapters here.</p>
+<p>This overview should get you thinking about what you will need <em>your</em> Flask app to do, and how you will be querying the database, inserting new records, etc.</p>
+<p>For all Python and SQL commands, refer to the links listed under “User’s Guide” in the <a class="reference external" href="https://flask-sqlalchemy.palletsprojects.com/">Flask-SQLAlchemy documentation</a>.</p>
+</div>
+<div class="section" id="how-to-connect-a-database-to-a-flask-app">
+<h2>How to connect a database to a Flask app<a class="headerlink" href="#how-to-connect-a-database-to-a-flask-app" title="Permalink to this headline">¶</a></h2>
+<p>The first step, assuming you have a database, is getting your app (or a starter script for your app) to <strong>connect</strong> to the database. <strong>Do this first.</strong></p>
+<p>Here’s a starter script for testing whether you can connect:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">../python_code_examples/flask/databases/test_local_sqlite_db.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    test a SQLite database connection locally</span>
+<span class="sd">    assumes the database file is in same location</span>
+<span class="sd">    as this .py file</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="kn">import</span> <span class="n">text</span>
+
+<span class="c1"># this variable, db, will be used for all SQLAlchemy commands</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
+<span class="c1"># create the app</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="c1"># change string to the name of your database; add path if necessary</span>
+<span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;sockmarket.db&#39;</span>
+
+<span class="hll"><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLALCHEMY_DATABASE_URI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">db_name</span>
+</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLALCHEMY_TRACK_MODIFICATIONS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># initialize the app with Flask-SQLAlchemy</span>
+<span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+
+<span class="c1"># NOTHING BELOW THIS LINE NEEDS TO CHANGE</span>
+<span class="c1"># this route will test the database connection - and nothing more</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">testdb</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">from_statement</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;SELECT 1&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;h1&gt;It works.&lt;/h1&gt;&#39;</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># e holds description of the error</span>
+        <span class="n">error_text</span> <span class="o">=</span> <span class="s2">&quot;&lt;p&gt;The error:&lt;br&gt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span>
+        <span class="n">hed</span> <span class="o">=</span> <span class="s1">&#39;&lt;h1&gt;Something is broken.&lt;/h1&gt;&#39;</span>
+        <span class="k">return</span> <span class="n">hed</span> <span class="o">+</span> <span class="n">error_text</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>The script above assumes that a SQLite database file (see <strong>filename</strong> on line 16) is in the same directory as the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. The script will work with any SQLite database file.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/flask/databases/test_mysql_connection">Starter scripts for a MySQL database connection are here.</a> More about this below.</p></li>
+</ul>
+<p>Note that line 18 is the key to the connection — it contains the <strong>database connection string,</strong> which will be <em>different</em> depending on which SQL database system you are connecting to. The SQLite connection string is simpler than the others, so be sure to read on if you’re using MySQL, PostgreSQL, or another system.</p>
+<p>Run the script above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">test_local_sqlite_db</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">http://localhost:5000</span></code> in your web browser. If you see the text “It works.” — then all is well. Otherwise, you’ll see an error message that should enable you to resolve the problem.</p>
+<div class="section" id="sqlite-resources">
+<h3>SQLite resources<a class="headerlink" href="#sqlite-resources" title="Permalink to this headline">¶</a></h3>
+<p>SQLite is a SQL database engine that is especially easy to work with because the database — regardless of its size or how many tables it might include — is in a single <code class="docutils literal notranslate"><span class="pre">.db</span></code> file. You can copy the file, upload it to a server, and so on — it is a standalone file.</p>
+<p>Unlike other database systems, a SQLite database does not have a username or password for access to the database itself.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sqlite.org/index.html">SQLite homepage</a></p></li>
+<li><p><a class="reference external" href="https://www.sqlite.org/download.html">Download and install SQLite for your operating system</a> (note: MacOS already has SQLite)</p></li>
+<li><p>Download the free <a class="reference external" href="https://sqlitebrowser.org/">DB Browser for SQLite</a> (you can easily create tables by importing CSV files) — use this to create a new database, add tables, set data types for columns, etc.</p></li>
+<li><p><a class="reference external" href="https://www.sqlitetutorial.net/">SQLite Tutorial</a></p></li>
+<li><p>SQLite can be used <em>without</em> SQLAlchemy: <a class="reference external" href="https://flask.palletsprojects.com/en/2.2.x/patterns/sqlite3/">Using SQLite3 with Flask</a></p></li>
+</ul>
+</div>
+<div class="section" id="connecting-to-a-mysql-database">
+<h3>Connecting to a MySQL database<a class="headerlink" href="#connecting-to-a-mysql-database" title="Permalink to this headline">¶</a></h3>
+<p>Two scripts are provided to test a connection to a MySQL database. <a class="reference external" href="https://github.com/macloo/python-adv-web-apps/tree/master/python_code_examples/flask/databases/test_mysql_connection">They are here.</a> An additional Python module must be installed — PyMySQL — and a username and password <strong>must</strong> be included in the connection string (even an <em>empty</em> password has a place).</p>
+<p>In addition, when running the MySQL database locally, a socket string must be included. This string will be very different on MacOS and Windows.</p>
+<p>If you do not want to run the database locally, but instead you have the database on a remote server — while you are writing your Flask app (and testing it) on your own computer — you will need to <a class="reference external" href="http://bit.ly/mm-remote-mysql">remotely connect to your MySQL database</a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/config/#connection-url-format">See other examples of connection strings.</a></p></li>
+</ul>
+</div>
+<div class="section" id="the-connection-string">
+<h3>The connection string<a class="headerlink" href="#the-connection-string" title="Permalink to this headline">¶</a></h3>
+<p>The database connection string requires a <strong>strict syntax,</strong> or it will not work. The SQLite string is by far the simplest:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">db_name</span>
+</pre></div>
+</div>
+<p>That assumes the <code class="docutils literal notranslate"><span class="pre">.db</span></code> file is adjacent to your <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. If not, write the path as needed.</p>
+<p>For other database systems, the connection string will be more complex:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;mysql+pymysql://&#39;</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="s1">&#39;@&#39;</span> <span class="o">+</span> <span class="n">server</span> <span class="o">+</span> <span class="n">database</span>
+</pre></div>
+</div>
+<p>Note, that example is for MySQL only; the protocol will be different for, say, PostgreSQL.</p>
+</div>
+<div class="section" id="setting-environment-variables">
+<h3>Setting environment variables<a class="headerlink" href="#setting-environment-variables" title="Permalink to this headline">¶</a></h3>
+<p>Instead of including username, password, and the whole database connection string <em>within a Python script,</em> you can set the complete string as an <strong>environment variable.</strong> Note that the connection string must be complete and correct for your configuration, as discussed in the previous section.</p>
+<p>If you set an environment variable for the connection string, then add the following lines near the top of your script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># check for environment variable</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL is not set&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Eliminate all lines that refer to username, password, server, and database name.</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">app.config</span></code> statement to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLALCHEMY_DATABASE_URI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Look up how to set an environment variable for your operating system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">os</span></code> is a built-in Python module.</p>
+</div>
+<p>When setting up a Flask app on a server, there will be an option to set environment variables there. The lines in the Flask script referring to the environment variable will not change.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Only one environment variable on your computer, or in an app, can be named <code class="docutils literal notranslate"><span class="pre">DATABASE_URL</span></code> — it’s a variable name, so you can change the string to something else, and you can set as many different variables as you need.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re using a SQLite database, don’t bother with environment variables.</p>
+</div>
+</div>
+<div class="section" id="what-could-go-wrong">
+<h3>What could go wrong?<a class="headerlink" href="#what-could-go-wrong" title="Permalink to this headline">¶</a></h3>
+<p>If you cannot get your Flask app to connect to your database, check the following:</p>
+<ul class="simple">
+<li><p>You forgot to install something (Flask-SQLAlchemy, or PyMySQL, etc.) in your Python virtual environment.</p></li>
+<li><p>Your virtual environment has not been activated.</p></li>
+<li><p>Your username and/or password for the database are wrong.</p></li>
+<li><p>Your database name is incorrect.</p></li>
+<li><p>On a remote server, permissions for the database user are not set correctly.</p></li>
+<li><p>For a local database, the socket does not match what you need on your computer.</p></li>
+<li><p>For a local MySQL database, you have not started the MySQL server.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>This has been a basic introduction to <em>getting started</em> with Flask-SQLAlchemy and databases in Flask. The first step is to make sure you are able to <strong>connect</strong> successfully to the database you want to use.</p>
+<p>A successful connection depends on <strong>which type of SQL system</strong> your database was built in. In this chapter, SQLite and MySQL are covered. PostgreSQL is another popular option but not covered here.</p>
+<p>Creating a database from scratch is not covered here.</p>
+<p>The following two chapters cover <strong>reading from</strong> or <strong>writing to</strong> the database.</p>
+<p>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flask_db2.html" class="btn btn-neutral float-right" title="Flask: Read from a Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flask_forms.html" class="btn btn-neutral float-left" title="Flask: Web Forms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 Mindy McAdams
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
